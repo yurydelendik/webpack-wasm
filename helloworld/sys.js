@@ -5,7 +5,8 @@ exports.setMemory = function (m) {
 };
 
 exports.print = function(ptr) {
-  let p = ptr;
+  var p = ptr;
   while (memory[p]) p++;
-  console.log(String.fromCharCode(...memory.subarray(ptr, p)));
+  var s = String.fromCharCode.apply(null, memory.subarray(ptr, p));
+  console.log(s);
 };
